@@ -1,5 +1,4 @@
 import java.io.IOException;
-// import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Oop_1 
@@ -8,7 +7,6 @@ public class Oop_1
     public static void main(String[] args) throws IOException 
     {
         double discountedPrice;
-        // ArrayList<Car> carList = new ArrayList<Car>();
         // ArrayList<Store> storeList = new ArrayList<Store>();
         Store store = new Store();
         String carType[] = {"SPORTCAR","SUVCAR"};
@@ -27,7 +25,7 @@ public class Oop_1
 
         while(count < qty)
         {
-            count++;
+            System.out.println(carType[0] + " or " + carType[1]);
             System.out.println("Enter Car #" + count + " info: ");
             System.out.println("make: ");
             String make = scanner.nextLine();
@@ -41,23 +39,28 @@ public class Oop_1
             System.out.println("price: ");
             double price = scanner.nextDouble();
             scanner.nextLine();
+            DiceRoller diceRoller = new DiceRoller(25);
+            // System.out.println("Congratulations you've got discount: " + diceRoller.number + "%");
+            discountedPrice = price - (price * diceRoller.number / 100);
             System.out.println("Enter car type: \n" + "[Y] Sport Car " + " [U] SUV Car\n");
             char carSelect = scanner.next().charAt(0);
+            scanner.nextLine();
             switch (carSelect) {
                 case 'y':
-                    
+                    // carList.add(new SportCar(make, model, year, color, discountedPrice, carType[0]));
+                    store.AddCar(make, model, year, color, discountedPrice, carType[0]);
+                    break;
+                case 'u':
+                    store.AddCar(make, model, year, color, discountedPrice, carType[1]);
                     break;
             
                 default:
                     break;
             }
-            DiceRoller diceRoller = new DiceRoller(25);
-            // System.out.println("Congratulations you've got discount: " + diceRoller.number + "%");
-            discountedPrice = price - (price * diceRoller.number / 100);
-
+            count++;
             // carList.add(new Car(make, model, year, color, price));
-            store.AddCar(make, model, year, color, discountedPrice);
-            System.out.println("Car #" + count + " has been added to the store\n\n"+ "Discounted: "+diceRoller.number + "%\n" + "+============================================+\n\n");
+            // store.AddCar(make, model, year, color, discountedPrice);
+            System.out.println("Car #" + count + " has been added to the store\n\n"+ "Discounted: "+diceRoller.number + "%\n" + "+============================================+\n");
 
         }
 
@@ -66,16 +69,15 @@ public class Oop_1
         
         
         scanner.close();
+        
         for(int i = 0; i < qty; i++)
         {
-            store.GetCar(i).CarInfo();
+            // System.out.println(store.GetCar(i).CarInfo());
+            store.GetCar(i).toString();
         }
         //example of using static keyword, you don't need to create an object to use it
         Car.CarCount();
-        // store.GetCar(count - 1).CarInfo();
         // store.GetAllCar();
-        // System.out.println(store.GetCar(0).CarInfo());
-        // System.out.println(store.GetAllCar());
         
         
         //we use toString() to print the object

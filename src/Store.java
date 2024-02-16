@@ -10,14 +10,23 @@ public class Store
         carList = new ArrayList<Car>();
     }
 
-    public void AddCar(String make, String model, int year, String color, double price)
+    public void AddCar(String make, String model, int year, String color, double price, String carType)
     {
-        carList.add(new Car(make, model, year, color, price));
+        if(carType == "SPORTCAR")
+        {
+            carList.add(new SportCar(make, model, year, color, price, carType));
+        }
+        else if(carType == "SUVCAR")
+        {
+            carList.add(new SuvCar(make, model, year, color, price, carType));
+        }
+        // carList.add(new Car(make, model, year, color, price, carType));
     }
 
     public Car GetCar(int index)
     {
-        // System.out.println(carList);
+        // Car car = carList.get(index);
+        // return car;
         return carList.get(index);
     }
 
