@@ -36,4 +36,10 @@ public class Store
         // System.out.println(carList.toString());
         return carList;
     }
+    // public void copy(Car x)
+    // {
+    //     carList.add(x);
+    // }
+
+    
 }

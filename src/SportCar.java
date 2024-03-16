@@ -12,6 +12,16 @@ public class SportCar extends Car
     // method overriding = 	Declaring a method in sub class,
 	//which is already present in parent class.
 	//done so that a child class can give its own implementation
+    void CarInfo()
+    {
+        System.out.println("Car Make is "+this.getMake());
+        System.out.println("Car model is "+this.getModel());
+        System.out.println("Car year is "+this.getYear());
+        System.out.println("Car color is "+this.color);
+        System.out.println("Car price is "+this.price);
+        System.out.println("Car Type is "+this.carType);
+        System.out.println("<===============================>\n\n");
+    }
 
     // @Override 
     public String toString()

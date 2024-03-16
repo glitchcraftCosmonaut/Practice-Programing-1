@@ -1,10 +1,12 @@
 
+// abstract = bstract classes cannot be instantiated, but they can have a subclass
+// abstract methods are declared without an implementation
 
-public class Car 
+abstract class Car 
 {
-    String make;
-    String model;
-    int year;
+    private String make;
+    private String model;
+    private int year;
     String color;
     double price;
     String carType;
@@ -20,28 +22,19 @@ public class Car
     Car (String make, String model, int year, String color, double price, String carType)
     {
         // "this" is a keyword which is used to access the variable inside the class
-        this.make = make;
-        this.model = model;
-        this.year = year;
+        // this.make = make;
+        this.setMake(make);
+        // this.model = model;
+        this.setModel(model);
+        // this.year = year;
+        this.setYear(year);
         this.color = color;
         this.price = price;
         this.carType = carType;
         carCount++;
     }
 
-    //we can pass this method
-    public void CarInfo()
-    {
-        System.out.println("Car Make is "+this.make);
-        System.out.println("Car model is "+this.model);
-        System.out.println("Car year is "+this.year);
-        System.out.println("Car color is "+this.color);
-        System.out.println("Car price is "+this.price);
-        System.out.println("Car Type is "+this.carType);
-        System.out.println("<===============================>\n\n");
-        // return this.make + "\n" + this.model + "\n" + this.year + "\n" + this.color + "\n" + this.price;
-
-    }
+    abstract void CarInfo();
 
     //let's use toString()
     //basically we can make the output same as the above method
@@ -68,12 +61,34 @@ public class Car
         System.out.println("Total car in the store is " + carCount);
     }
 
-    // void Drive()
-    // {
-    //     System.out.println("Driving");
-    // }
-    // void Brake()
-    // {
-    //     System.out.println("Braking");
-    // }
+    // Encapsulation = 	attributes of a class will be hidden or private, 
+    //Can be accessed only through methods (getters & setters)
+    //You should make attributes private if you don't have a reason to make them public/protected
+
+
+    public String getMake()
+    {
+        return make;
+    }
+    public String getModel()
+    {
+        return model;
+    }
+    public int getYear()
+    {
+        return year;
+    }
+
+    public void setMake(String make)
+    {
+        this.make = make;
+    }
+    public void setModel(String model)
+    {
+        this.model = model;
+    }
+    public void setYear(int year)
+    {
+        this.year = year;
+    }
 }
